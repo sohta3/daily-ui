@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sign Up</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat|Quicksand"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="normalize.css" />
+    <style>
+      html {
+        font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+          "Yu Gothic", YuGothic, Verdana, Meiryo, "M+ 1p", sans-serif;
+      }
+
+      .form-panel {
+        height: calc(100vh - 100px);
+        margin-top: 100px;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+      }
+      .form-row {
+        margin: 0 40px 6px;
+      }
+      input[type="text"],
+      input[type="email"],
+      input[type="password"] {
+        padding: 8px;
+        flex: 1 0 0px;
+      }
+      input[type="text"]:focus,
+      input[type="email"]:focus,
+      input[type="password"]:focus {
+        outline: 0;
+      }
+      .form-row {
+        height: 38px;
+      }
+      .form-row-inner {
+        background-color: rgb(250, 250, 250);
+        border: 1px solid #efefef;
+        border-radius: 2px;
+        width: 100%;
+        font-size: 14px;
+        line-height: 18px;
+        position: relative;
+        display: flex;
+      }
+      .form-row-inner label {
+        position: absolute;
+        color: #999;
+        left: 9px;
+        height: 36px;
+        line-height: 36px;
+      }
+      .form-row-inner--focused {
+        border: 1px solid #b2b2b2;
+      }
+      .item-label--inputting {
+        transform-origin: left;
+        transition: transform ease-out 0.1s;
+        transform: scale(0.83333) translateY(-10px);
+      }
+
+      .item-label--inputting + input[type="text"],
+      input[type="email"],
+      input[type="password"] {
+        padding: 14px 0 2px 8px !important;
+        font-size: 12px;
+      }
+      .submit-button {
+        background-color: #3897f0;
+        border: 1px solid #3897f0;
+        border-radius: 4px;
+        color: #fff;
+        width: 100%;
+        padding: 8px;
+        outline: 0;
+        font-size: 14px;
+        line-height: 18px;
+        font-weight: 600;
+      }
+      .submit-button:active {
+        opacity: 0.7;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="form-panel">
+      <form>
+        <div class="form-row form-name">
+          <div class="form-row-inner">
+            <label class="item-label" for="mobile-no-or-email"
+              >Mobile Number or Email</label
+            >
+            <input
+              type="text"
+              name="mobile-no-or-email"
+              id="mobile-no-or-email"
+            />
+          </div>
+        </div>
+        <div class="form-row form-email">
+          <div class="form-row-inner">
+            <label class="item-label" for="user-name">Username</label>
+            <input type="text" name="user-name" id="user-name" />
+          </div>
+        </div>
+        <div class="form-row form-password">
+          <div class="form-row-inner">
+            <label class="item-label" for="pw">Password</label>
+            <input type="password" name="password" id="pw" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div>
+            <input
+              type="submit"
+              class="btn btn-default submit-button"
+              value="Sign up!"
+            />
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      document
+        .querySelectorAll(
+          "input[type=text], input[type=email], input[type=password]"
+        )
+        .forEach(function(elem) {
+          elem.addEventListener("focus", function() {
+            elem.parentNode.classList.add("form-row-inner--focused");
+          });
+          elem.addEventListener("blur", function() {
+            elem.parentNode.classList.remove("form-row-inner--focused");
+          });
+          elem.addEventListener("keyup", function() {
+            console.log(elem);
+            console.log(elem.value.length);
+            if (elem.value.length > 0) {
+              document
+                .querySelector(`[for=${elem.id}]`)
+                .classList.add("item-label--inputting");
+            } else {
+              document
+                .querySelector(`[for=${elem.id}]`)
+                .classList.remove("item-label--inputting");
+            }
+          });
+        });
+    </script>
+  </body>
+</html>
