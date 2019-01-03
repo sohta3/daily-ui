@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sign Up</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat|Quicksand"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="normalize.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Inconsolata"
+      rel="stylesheet"
+    />
+    <style>
+      html {
+        font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue",
+          "Yu Gothic", YuGothic, Verdana, Meiryo, "M+ 1p", sans-serif;
+      }
+
+      h1 {
+        padding-left: 40px;
+      }
+
+      body {
+        height: calc(100vh - 1.34em);
+      }
+
+      form {
+        margin: 0 40px;
+      }
+
+      label {
+        font-family: Inconsolata;
+        text-transform: uppercase;
+        display: block;
+        margin-bottom: 4px;
+      }
+      input[type="text"] {
+        border: 1px solid #efefef;
+        font-size: 14px;
+        border-radius: 5px;
+        box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.2);
+        padding: 10px;
+        outline: none;
+      }
+      input[type="text"]:focus,
+      select:focus {
+        border: 1px solid #b2b2b2;
+      }
+      .card-no {
+        width: 48px;
+      }
+      .card-holder {
+        width: 100%;
+        box-sizing: border-box;
+      }
+      .ccv {
+        width: 48px;
+      }
+      select {
+        padding: 10px;
+        box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.2);
+        border: 1px solid #efefef;
+        border-radius: 5px;
+        width: 84px;
+        background: none;
+        outline: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+      }
+      .inline-container {
+        display: flex;
+        justify-content: space-between;
+      }
+      .form-item {
+        margin-bottom: 8px;
+      }
+      .select-container {
+        position: relative;
+        margin-right: 8px;
+      }
+
+      .select-container:after {
+        content: "";
+
+        border-top: 8px solid #222;
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        position: absolute;
+        z-index: 2;
+        top: 16px;
+        right: 10px;
+        pointer-events: none;
+      }
+      .expiration-container {
+        display: flex;
+      }
+
+      .submit-button {
+        background-color: #3897f0;
+        border: 1px solid #3897f0;
+        border-radius: 4px;
+        color: #fff;
+        width: 100%;
+        padding: 8px;
+        outline: 0;
+        font-size: 14px;
+        line-height: 18px;
+        font-weight: 600;
+        margin-top: 8px;
+      }
+      .submit-button:active {
+        opacity: 0.7;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>#002 Credit Card Checkout</h1>
+    <div class="form-panel">
+      <form>
+        <div class="form-item">
+          <label class="" for="card-no-1">CARD NUMBER</label>
+          <div>
+            <input
+              type="text"
+              class="card-no"
+              name="card-no-1"
+              id="card-no-1"
+              pattern="\d*"
+              maxlength="4"
+            />
+            <input
+              type="text"
+              class="card-no"
+              name="card-no-2"
+              id="card-no-2"
+              pattern="\d*"
+              maxlength="4"
+            />
+            <input
+              type="text"
+              class="card-no"
+              name="card-no-3"
+              id="card-no-3"
+              pattern="\d*"
+              maxlength="4"
+            />
+            <input
+              type="text"
+              class="card-no"
+              name="card-no-4"
+              id="card-no-4"
+              pattern="\d*"
+              maxlength="4"
+            />
+          </div>
+        </div>
+
+        <div class="form-item">
+          <label class="item-label" for="card-holder">CARD HOLDER</label>
+          <div>
+            <input
+              class="card-holder"
+              type="text"
+              name="card-holder"
+              id="card-holder"
+            />
+          </div>
+        </div>
+
+        <div class="form-item">
+          <div class="inline-container">
+            <div>
+              <label class="item-label" for="expiration-date-month"
+                >EXPIRATION DATE</label
+              >
+              <div class="expiration-container">
+                <div class="select-container">
+                  <select id="card-expiration-month">
+                    <option></option>
+                    <option>01</option>
+                    <option>02</option>
+                    <option>03</option>
+                    <option>04</option>
+                    <option>05</option>
+                    <option>06</option>
+                    <option>07</option>
+                    <option>08</option>
+                    <option>09</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                  </select>
+                </div>
+                <div class="select-container">
+                  <select id="card-expiration-year">
+                    <option></option>
+                    <option>2016</option>
+                    <option>2017</option>
+                    <option>2018</option>
+                    <option>2019</option>
+                    <option>2020</option>
+                    <option>2021</option>
+                    <option>2022</option>
+                    <option>2023</option>
+                    <option>2024</option>
+                    <option>2025</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div>
+              <label class="item-label" for="ccv">CCV</label>
+              <div>
+                <input
+                  class="ccv"
+                  type="text"
+                  name="ccv"
+                  id="ccv"
+                  maxlength="3"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-item">
+          <div>
+            <input
+              type="submit"
+              class="btn btn-default submit-button"
+              value="Submit"
+            />
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
